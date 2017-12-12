@@ -27,6 +27,7 @@ if [[ ! -d $coredir ]]; then
     sed -i.bak '/cores adminPath/a \    <core name="drupal" instanceDir="drupal" />' $coredir/multicore/solr.xml
     echo created "$CORE"
 else
+    cp -r $CONFIG_SOURCE/*.* $coredir/multicore/$CORE/conf
     echo "core $CORE already exists"
 fi
 cd $coredir
